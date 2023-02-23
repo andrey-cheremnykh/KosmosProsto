@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1519372791815858864}
   - component: {fileID: 1519372791815858871}
   - component: {fileID: 1519372791815858870}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -98,7 +98,9 @@ GameObject:
   - component: {fileID: 5531068162302232948}
   - component: {fileID: 3869536528752563128}
   - component: {fileID: 3798432368832816760}
-  m_Layer: 0
+  - component: {fileID: 1511114130}
+  - component: {fileID: 1581543301084623296}
+  m_Layer: 7
   m_Name: Payer Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,10 +199,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61e385d1c1824af4cb04d6bf2ad8611b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pitchPower: 140
-  rollPower: 180
-  yawPower: 120
-  enginePower: 90
+  Throttle: {x: 0, y: 0, z: 0}
+  rotateSpeed: 5
+  pitchPower: 5
 --- !u!54 &3798432368832816760
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -217,3 +218,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &1511114130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487446684715843136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f4a682ff4a254e4ebeecdeaf010daa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1581543301084623296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5487446684715843136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c13429302ec1342b5b92357244079e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 100
