@@ -5,19 +5,38 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] float hp = 100;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    [SerializeField]ParticleSystem damageVFX;
+    [SerializeField]ParticleSystem deathVFX;
+    
     // Update is called once per frame
     void Update()
     {
-        if (hp == 0) Destroy(gameObject);
+        if (hp < 0) 
+        {
+            StartCoroutine(Death());
+        }
     }
     public void GetDamage(float damage)
     {
         hp -= damage;
+        damageVFX.Play();
+    }
+    IEnumerator Death()
+    {
+
+        deathVFX.Play();
+        yield return new WaitForSeconds(1);
+        if(transform.tag == "Enemy Fighter")
+        {
+            EnemyReward er = FindObjectOfType<EnemyReward>();
+            er.ScorePoints(20);
+            Destroy(gameObject);
+        } 
+        else if(transform.tag == "Enemy Destroyer")
+        {
+            EnemyReward er = FindObjectOfType<EnemyReward>();
+            er.ScorePoints(40);
+            Destroy(gameObject);
+        }
     }
 }

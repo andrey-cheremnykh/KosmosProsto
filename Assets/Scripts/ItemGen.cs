@@ -6,8 +6,7 @@ public class ItemGen : MonoBehaviour
 {
     [SerializeField] int AstsToGen;
     [SerializeField] GameObject AstPrefab;
-    [SerializeField] float MinX, MinY, MinZ;
-    [SerializeField] float MaxX, MaxY, MaxZ;
+    [SerializeField] Vector3Int MinVector, MaxVector;
     private void Awake()
     {
         GenerateAsts();
@@ -19,9 +18,9 @@ public class ItemGen : MonoBehaviour
         if (toGen >= AstsToGen) return;
         while (toGen < AstsToGen)
         {
-            float RandomY = Random.Range(MinY, MaxY);
-            float RandomZ = Random.Range(MinZ, MaxZ);
-            float RandomX = Random.Range(MinX, MaxX);
+            int RandomX = Random.Range(MinVector.x, MaxVector.x);
+            int RandomY = Random.Range(MinVector.y, MaxVector.y);
+            int RandomZ = Random.Range(MinVector.z, MaxVector.z);
             Vector3 randomVector = new(RandomX, RandomY, RandomZ);
             Instantiate(AstPrefab, randomVector, Quaternion.identity);
             toGen++;
